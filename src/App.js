@@ -25,7 +25,7 @@ function App() {
   });
   const [totalTime, setTotalTime] = useState(null);
 
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     const stIn = getDateFromHours(data.st_in);
     const stOut = getDateFromHours(data.st_out);
     const ndIn = getDateFromHours(data.nd_in);
@@ -45,15 +45,15 @@ function App() {
         <img src={StopWatch} alt="Relógio Ponto" />
         <h1 className="app-title">Calculadora Relógio Ponto</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="app-form">
-          <Field label="1º Entrada" name="st_in" register={register} errors={errors} />
-          <Field label="1º Saída" name="st_out" register={register} errors={errors} />
+          <Field label="1º Entrada" name="st_in" type="tel" pattern="99:99" register={register} errors={errors} />
+          <Field label="1º Saída" name="st_out" type="tel" pattern="99:99" register={register} errors={errors} />
 
           <b>Intervalo</b>
           <hr color="#ced4da" size="1" />
           <br />
 
-          <Field label="2º Entrada" name="nd_in" register={register} errors={errors} />
-          <Field label="2º Saída" name="nd_out" register={register} errors={errors} />
+          <Field label="2º Entrada" name="nd_in" type="tel" pattern="99:99" register={register} errors={errors} />
+          <Field label="2º Saída" name="nd_out" type="tel" pattern="99:99" register={register} errors={errors} />
 
           <input type="submit" value="Calcular" className="btn-submit" disabled={!formState.isValid} />
         </form>
